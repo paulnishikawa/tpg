@@ -1,0 +1,216 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+	position: relative;
+	}
+
+/* Page Formatting */
+
+#contact-page .jumbotron, #camps-page .jumbotron, #register-page #registrationform {
+	margin-top: 75px;
+}
+
+#registrationform {
+	margin-top: 40px;
+	}
+
+#about {
+	padding-bottom: 40px;
+}
+
+
+/* Responsive Content */
+
+#about h1.highlight {
+	color:#9e0303;
+	text-shadow: 	0px 4px 3px rgba(128,128,128,0.6),
+					0px 8px 13px rgba(128,128,128,0.4),
+					0px 18px 23px rgba(128,128,128,0.1);
+	}
+
+/* Carousel */
+
+.carousel {
+	margin-top: 70px;
+	}
+
+.carousel-inner > .item > img {
+  min-width: 100%;
+  height: 100%;
+}
+
+.item img { 
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	}
+
+.carousel-content h1 {
+	position: absolute;
+	bottom: 25%;
+	right: 10%;
+	z-index: 20;
+	font-size: 3.5em;
+	text-align: right;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 100;
+	color: white;
+	text-shadow: 	0px 4px 3px rgba(0,0,0,0.6),
+					0px 8px 13px rgba(0,0,0,0.3),
+					0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.carousel-caption {
+	position: absolute;
+	bottom: 15%;
+	right: 10%;
+	z-index: 20;
+	text-align: right;
+	color: #000000;
+	font-size: 1.7em;
+	font-weight: 600;
+	text-shadow: 0px 1px 7px rgba(255,255,255,0.6);
+}
+
+.carousel-indicators li {
+	width: 15px;
+	height: 15px;
+	background-color: rgba(255, 255, 255, 0.5);
+	cursor: hand;
+}
+
+.carousel-indicators li:hover {
+	background-color: rgba(255, 0, 0, 0.5);
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+	width: 50%; 
+	height: 50%; 
+}
+
+/* Navbar */
+
+.navbar {
+	font-family: 'Oswald', sans-serif;
+	font-weight: 200;
+	font-size: 1.1em;
+}
+
+.navbar-brand {
+	height: 60px;
+	width: 160px;
+	background: 0 5px url('/tpg/i/tpg_logo.png') no-repeat;
+	background-size: 150px 50px;
+	padding-left: 45px;
+	padding-right: 20px;
+	}
+
+a.anchor {
+	display: block; 
+	position: relative; 
+	top: -100px; 
+	visibility: hidden;
+	}
+
+/* Typography */
+
+h1, h2 {
+	font-family: 'Oswald', sans-serif;
+	font-weight: 200;
+}
+
+h1 {
+	color: gray;
+	padding-bottom: 25px;
+}
+
+.white{
+    color:white;
+    }
+
+#about h2 {
+	color: gray;
+}
+
+/* Cards */
+
+.card {
+	font-family: 'Roboto', sans-serif;
+	font-size: 0.8em;
+	margin: 10px;
+	padding: 0;
+}
+
+.packed-cards {
+	margin: 0 auto;
+}
+
+/* Sponsors */
+
+#sponsors  {
+	padding: 30px 0;
+}
+
+#sponsors img {
+	width: 110px;
+}
+
+#sponsors div {
+	padding: 15px 0;
+	}
+
+/* Footer */
+
+#register-page footer {
+	margin-top: 40px;
+}
+
+footer h5 {
+	color: white;
+	}
+
+/* Contact Form */
+
+.red{
+    color:red;
+    }
+    
+.form-area {
+    background-color: #FAFAFA;
+	padding: 10px 40px 60px;
+	margin: 10px 0px 60px;
+	border: 1px solid GREY;
+	}
+	
+/* Camps */
+
+#bragging-rights img{
+    max-width: 140px;
+    max-height: 70px;
+    }
+
+.btn-sm {
+	min-width: 80px;
+}
+	
+/* debugging... */
+
+.db {
+	border: 1px dotted red;
+	color: red;
+}
+
+.db2 {
+	border: 1px dotted red;
+	color: green;
+}
+
+.db3 {
+	border: 1px dotted red;
+	color: blue;
+}
+
+.db4 {
+	border: 1px dotted red;
+	color: purple;
+}
