@@ -1,0 +1,53 @@
+p.camp-dates {
+	line-height: 1;
+}
+
+#camp-modal .modal-img {
+	width: 100px;
+	float:right;
+}
+
+#camp-modal .modal-header {
+	padding-top: 0;
+	padding-bottom: 12px;
+	background-color: #eee;
+}
+
+#camps-list a:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+
+button.btn.btn-link {
+     border-color: transparent!important;
+     border-width: 0;
+}
+
+a.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 14px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 2.1;
+}
+
+a.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+	margin: 0;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	width: 70px;
+	height: 70px;
+	z-index: 100;
+	text-decoration: none;
+}
+

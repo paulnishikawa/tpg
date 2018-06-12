@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
+    <link rel="icon" type="image/png" href="img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Top Prospects Goaltending | Administration | Camps</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />
+    <link href="css/light-bootstrap-dashboard.css?v=2.0.1" rel="stylesheet" />
+    <link href="css/admin.css" rel="stylesheet" />
+
+	<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-firestore.js"></script>
+	
+	<script src="js/firestore-setup.js"></script>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+	    <!-- SIDEBAR -->
+
+        <div class="sidebar" data-image="img/sidebar-tpg.jpg" data-color="red">
+            <div class="sidebar-wrapper">
+                <div class="logo">
+	                <span class="small-text align-center">Go to</span><br>
+                    <a href="http://www.kampr.co" target="_blank" class="simple-text"><img src="../i/tpg_logo.png" width="170"></a>
+                </div>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">
+                            <i class="nc-icon nc-spaceship"></i>
+                            <p>DASHBOARD</p>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a class="nav-link" href="camps.html">
+                            <i class="nc-icon nc-grid-45"></i>
+                            <p>CAMPS</p>
+                        </a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="registrations.html">
+                            <i class="nc-icon nc-circle-09"></i>
+                            <p>REGISTRATIONS </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="content.html">
+                            <i class="nc-icon nc-single-copy-04"></i>
+                            <p>CONTENT</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="settings.html">
+                            <i class="nc-icon nc-settings-gear-64"></i>
+                            <p>SETTINGS</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+	    <!-- END SIDEBAR -->
+
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+                <div class=" container-fluid  ">
+                    <a class="navbar-brand" href=""> Add a Camp </a>
+                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="nav navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" data-toggle="dropdown">
+                                    <i class="nc-icon nc-spaceship"></i>
+                                    <span class="d-lg-none">Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="dropdown nav-item">
+                                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                    <i class="nc-icon nc-bell-55"></i>
+                                    <span class="notification">1</span>
+                                    <span class="d-lg-none">Notification</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">New Registrations</a>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" data-toggle="dropdown">
+                                    <i class="nc-icon nc-single-02"> </i>
+                                    <span class="d-lg-block"> My Profile</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">
+                                    <span class="no-icon">Log out</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <div class="content">
+
+                <div class="container-fluid">
+					<div class="form-header">
+					  <h2>Add a Camp</h2>
+					</div>
+					<form name="add-camp" action="javascript:void(0);" onsubmit="addCamp()">
+					  <div class="form-group">
+					    <label for="camp-name">Camp Name</label>
+					    <input type="text" class="form-control " id="camp-name" aria-describedby="Camp Name" placeholder="Enter camp name">
+					    <label for="camp-type">Camp Type</label>
+		                <select class="custom-select d-block" id="camp-type">
+		                  <option value="">Choose a Camp Type...</option>
+		                  <option value="camp">Camp</option>
+		                  <option value="academy">Academy</option>
+		                  <option value="development">Development</option>
+		                </select>
+					  </div>
+					  <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add Camp</button>
+					</form>
+				</div>
+
+				<div class="container py-5">
+			        <table id="camps_list" class="table">
+	                    <thead class="thead-dark">
+		                    <tr>
+		                        <th>Name</th>
+		                        <th>Type</th>
+		                        <th> </th>
+		                    </tr>
+	                    </thead>
+                    	<tbody>
+	                    	<tr>
+		                    	<td>0</td>
+		                    	<td>sample content...</td>
+		                    	<td>???</td>
+	                    	</tr>
+                    	</tbody>
+	                </table>
+				</div>
+
+           </div>
+  
+             <footer class="footer">
+                <div class="container">
+                    <nav>
+                        
+                        <p class="copyright text-right">
+                            &copy;
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>
+                            <a href="http://www.kampr.co">Kampr</a>, the only way to manage a hockey camp
+                        </p>
+                    </nav>
+                </div>
+            </footer>
+            
+            
+        </div>
+    </div>
+
+</body>
+
+
+<!--   Core JS Files   -->
+	<script   src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+		<script src="js/core/popper.min.js" type="text/javascript"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+<script src="js/plugins/bootstrap-switch.js"></script>
+<!--  Notifications Plugin    -->
+<script src="js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc 
+<script src="js/light-bootstrap-dashboard.js?v=2.0.1" type="text/javascript"></script> -->
+
+<!--   Firebase data   -->
+
+ <script type='text/javascript'>
+
+	const db = firebase.firestore();
+	
+	function show_camps(n) {
+		
+		var rowIndex = 0;
+		var tableRef = document.getElementById('camps_list');
+		var tableBodyRef = tableRef.getElementsByTagName('tbody')[0];
+		
+		$("table#camps_list tbody tr").remove();
+		
+		var campsRef = db.collection("camps");
+		
+		campsRef.get().then((querySnapshot) => {
+		    querySnapshot.forEach((doc) => {
+				var campRef = doc;
+				var row = tableBodyRef.insertRow(rowIndex);
+	
+				var cellName = row.insertCell(0);
+				cellName.appendChild(document.createTextNode(campRef.data().name));
+
+				var cellType = row.insertCell(1);
+				cellType.appendChild(document.createTextNode(campRef.data().type));
+
+				var cellAction = row.insertCell(2);
+				var campID = campRef.id;
+				// delete icon
+				 let deleteIconUI = document.createElement("i");
+				 deleteIconUI.className = "fa fa-trash-o text-danger";
+				 deleteIconUI.setAttribute("campid", campID);
+				 deleteIconUI.addEventListener("click", deleteCamp);
+				cellAction.append(deleteIconUI);
+
+				rowIndex = rowIndex + 1;
+				if (n == campID) {
+//					console.log("***New row with ID: ", n);
+					row.className = ('table-new-row');
+					}
+				});
+			});
+
+			setTimeout(function () {
+			    $('.table-new-row').effect("highlight", { color: "#fffff0" }, 5000);
+				}, 5000);
+		}
+	 
+	function deleteCamp(e){
+		e.stopPropagation();
+		const campID = e.target.getAttribute("campid");
+		
+		var delCampRef = db.collection("camps").doc(campID);
+				
+		delCampRef.delete().then(function() {
+
+			$.notify({
+				// options
+				icon: 'fa fa-check-circle',
+				message: 'Camp deleted.'
+			},{
+				// settings
+				type: 'success',
+				delay: 5000,
+				placement: {
+					from: "bottom",
+					align: "right"
+				}
+			});
+			
+//		    console.log("Document successfully deleted!");
+		});
+
+		show_camps();
+		}
+	
+	
+	function addCamp(){
+	
+		var e = document.getElementById('camp-name');
+		var campName = e.value;
+		var f = document.getElementById('camp-type');
+		var campType = f.options[f.selectedIndex].value;
+	
+	 // Add a new document
+	
+		db.collection("camps").add({
+		    name: campName,
+		    type: campType
+			})
+		.then(function(docRef) {
+			show_camps(docRef.id);
+			})
+		.catch(function(error) {
+		    console.error("Error adding document: ", error);
+			});
+		clear_fields();
+
+		show_camps();
+		}
+	
+	function clear_fields() {
+		var e = document.getElementById('camp-name');
+		e.value = "";
+		$("#camp-type").val("");
+	}
+	
+	show_camps();
+	
+	 </script>
+
+</html>
+
